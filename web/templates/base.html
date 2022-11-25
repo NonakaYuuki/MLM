@@ -1,0 +1,25 @@
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        p{
+          margin-left: 1.5rem;
+        }
+      </style>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+    <title>Document</title>
+    {% block head %}{% endblock %}
+</head>
+
+<body>
+    <nav class="navbar navbar-light bg-light p-3">
+        <a class="btn btn-secondary btn-sm" href="/" role="button"><b><font size="6">🏠 怪しいビジネスに関する情報</font></b></a>
+        <a class="btn btn-secondary btn-sm" href="/login" role="button" align="right"><b><font size="5">ログイン</font></b></a>
+        <a class="btn btn-secondary btn-sm" href="/logout" role="button" align="right"><b><font size="5">ログアウト</font></b></a>
+    </nav>
+    {% block body %}{% endblock %}
+</body>
+
+</html>

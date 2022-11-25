@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block body %}
+<!-- <h2>"{{post.title}}" さんへの返信一覧</h2> -->
+<p class="card-header" style="text-align:right">ようこそ！{{name}}さん</p>
+<p><br></p>
+<!-- <h2>お名前：{{ post.title }}</h2> -->
+<h6><font color="gray">{{ post.title }}・{{post.due}}</font></h6>
+<p><b><font size="4" color="black">{{ post.detail }}</font></b></p>
+
+<p><br></p>
+<h4>-----------------------------ここから返信---------------------------------------------------------------------</h4>
+{% for rep in reps %}
+    <!-- <h3>お名前：{{ rep.rep_title }}</h3> -->
+    <h6><font color="gray">{{ rep.rep_title }}・{{rep.rep_due}}</font></h6>
+    <p><b><font size="3" color="black">{{ rep.rep_detail }}</font></b></p>
+    <a href="/update_reply/{{ rep.rep_id }}/{{ rep.parent_id }}" role="button">編集</a>
+    <a href="/delete_reply/{{ rep.rep_id }}/{{ rep.parent_id }}" role="button">削除</a>
+    <p></p>
+{% endfor %}
+
+<p><br></p>
+<div class="form">
+    <form action="/reply/{{parent_id}}/create" method="POST">
+        <label for="detail">内容</label>
+        <input type="text" name="detail">
+        <br>
+        <input type="submit" value="返信">
+    </form>
+</div>
+
+
+{% endblock %}

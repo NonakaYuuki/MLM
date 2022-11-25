@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block body %}
+<h1>ユーザ登録</h1>
+<form action="/signup" method="POST">
+    <label for="">ユーザ名</label>
+    <input type="text" name="username">
+    <label for="">メールアドレス</label>
+    <input type="text" name="mail">
+    <label for="">パスワード</label>
+    <input type="password" name="password">
+    <input type="submit" value="新規登録">
+</form>
+{% endblock %}

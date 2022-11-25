@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block body %}
+<h2>編集</h2>
+<div class="form">
+    <form action="/update_detail_title/{{ post.id }}/{{ post.parent_id }}" method='POST'>
+        <label for="due">いつ頃の話ですか</label>
+        <input type="date" name="due" required>
+        <br>
+        <label for="detail">内容</label>
+        <input type="text" name="detail" value={{ post.detail }}>
+        <br>
+        <input type="submit" value="編集">
+    </form>
+</div>
+{% endblock %}

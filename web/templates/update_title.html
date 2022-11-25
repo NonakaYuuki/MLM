@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block body %}
+<h2>編集</h2>
+<div class="form">
+    <form action="/update_title/{{ post.title_id }}" method='POST'>
+        <label for="title">タイトルを編集</label>
+        <input type="text" name="title" value={{ post.title_title }}>
+        <input type="submit" value="編集">
+    </form>
+</div>
+{% endblock %}

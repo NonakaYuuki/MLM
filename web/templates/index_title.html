@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block body %}
+<!-- <a href="/create_title" role="button">CREATE NEW TITLE</a> -->
+<p class="card-header" style="text-align:right">ようこそ！{{name}}さん</p>
+<p><br></p>
+{% for post in posts %}
+    <!-- <p>{{post.title_due}}</p> -->
+    <a href="/detail_title/{{post.title_id}}" role="button"><h2>・{{ post.title_title }}</h2></a>
+    <a href="/update_title/{{ post.title_id }}" role="button">編集</a>
+    <a href="/delete_title/{{ post.title_id }}" role="button">削除</a>
+    <p><br></p>
+{% endfor %}
+<p><br></p>
+<div style="text-align:center" class="form">
+    <form action="/create_title" method="POST">
+        <label for="title"><b>タイトルを作成</b></label>
+        <input type="text" name="title">
+        <!-- <label for="due">Due</label>
+        <input type="date" name="due" required> -->
+        <input type="submit" value="作成">
+    </form>
+</div>
+{% endblock %}

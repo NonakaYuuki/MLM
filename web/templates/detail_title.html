@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block body %}
+<p class="card-header" style="text-align:right">ようこそ！{{name}}さん</p>
+<p><br></p>
+<h3>「{{title.title_title}}」に関するみんなのコメント</h3>
+<!-- <a href="/detail_title/{{ parent_id }}/create" role="button">CREATE NEW COMMENT</a> -->
+<p><br></p>
+{% for post in posts %}
+    <h6>{{ post.title }}・<font color="gray">{{post.due}}</font></h6>
+    <p><b><font size="4" color="black">{{ post.detail }}</font></b></p>
+    <a href="/reply/{{ post.id }}" role="button">{{post.rep}}件の返信</a>
+    <a href="/update_detail_title/{{ post.id }}/{{ post.parent_id }}" role="button">編集</a>
+    <a href="/delete_detail_title/{{ post.id }}/{{ post.parent_id }}" role="button">削除</a>
+    <p><br></p>
+{% endfor %}
+<p></p>
+<div style="text-align:center" class="form-group">
+    <form action="/detail_title/{{parent_id}}/create" method="POST">
+        <label for="due">いつ頃の話ですか</label>
+        <input type="date" name="due" required>
+        <br>
+        <label for="detail"><b>内容</b></label>
+        <input class="form-control col-sm-10" cols="22" rows="5" type="text" name="detail">
+        <br>
+        <input type="submit" value="Create">
+    </form>
+</div>
+{% endblock %}

@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block body %}
+<h2>編集</h2>
+<div class="form">
+    <form action="/update_reply/{{ post.rep_id }}/{{ post.parent_id }}" method='POST'>
+        <label for="detail">内容</label>
+        <input type="text" name="detail" value={{ post.rep_detail }}>
+        <br>
+        <input type="submit" value="編集">
+    </form>
+</div>
+{% endblock %}
